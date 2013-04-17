@@ -9,7 +9,7 @@ Dir.chdir(GIT_DIR)
 `git branch -r --merged`.each_line do |remote_branch|
   branch = remote_branch.gsub("origin/", "").chomp.strip
   unless persistent_branches.include?( branch )
-    puts "git push origin :#{branch}"
+    `git push origin :#{branch}`
   end
 end
 #`git branch --merged`.each_line do |branch|
